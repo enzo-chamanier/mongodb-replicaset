@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:4.4
+    command: mongod --replSet rs0 --bind_ip localhost,mongo
+    ports:
+      - "27017:27017"
+  mongo2:
+    image: mongo:4.4
+    command: mongod --replSet rs0 --bind_ip localhost,mongo2
+    ports:
+      - "27018:27017"
+  mongo3:
+    image: mongo:4.4
+    command: mongod --replSet rs0 --bind_ip localhost,mongo3
+    ports:
+      - "27019:27017"
