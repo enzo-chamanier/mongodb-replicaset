@@ -54,29 +54,29 @@ démarrage des services avec Docker Compose.
 Exécutez le script generateData.js pour générer et insérer des données aléatoires 
 dans la base de données :
     
-    ```bash
+    ```
     node generateData.js
     ```
 ### Commandes CLI pour les opérations CRUD 
 - Insertion 
     
-        ```bash
+        ```
         node createData.js
         ```
 
 - Lecture
 
-        ```bash
+        ```
         node readData.js
         ```
 - Mise à jour
 
-        ```bash
+        ```
         node updateData.js 
         ```
 - Suppression
 
-        `` bash
+        `` 
         node deleteData.js
         ```
 ## Auteur
