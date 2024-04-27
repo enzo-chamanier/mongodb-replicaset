@@ -1,66 +1,85 @@
-# Titre du projet
-_(juste en dessous des badges sympatiques à placer)_
+# Projet MongoDB Replica Set avec Docker et Node.js
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
-
-Une petite description du projet
-
-## Pour commencer
-
-Entrez ici les instructions pour bien débuter avec votre projet...
-
-### Pré-requis
-
-Ce qu'il est requis pour commencer avec votre projet...
-
-- Programme 1
-- Programme 2
-- etc...
-
-### Installation
-
-Les étapes pour installer votre programme....
-
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
+Ce projet illustre la mise en place d'un Replica Set MongoDB en utilisant Docker et l'automatisation des opérations CRUD avec un script Node.js. Il sert de guide pratique pour implémenter une réplication de base de données dans MongoDB et automatiser des tâches de gestion des données.
 
 ## Démarrage
 
-Dites comment faire pour lancer votre projet
+Les instructions suivantes vous guideront dans la mise en place de l'environnement et l'exécution du projet.
 
-## Fabriqué avec
+## Prérequis
 
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
+Ce dont vous avez besoin pour installer le logiciel et comment l'installer :
 
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
+- Docker
+- Node.js
+- NPM 
 
-## Contributing
+## Installation
 
-Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
+1. **Cloner le dépôt**
+   
+   Clonez ce dépôt sur votre machine locale en utilisant :
 
-## Versions
-Listez les versions ici 
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
+   ```bash
+   git clone https://github.com/enzo-chamanier/mongodb-replicaset.git
+   ```
 
-## Auteurs
-Listez le(s) auteur(s) du projet ici !
-* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
+2. **Naviguer dans le répertoire du projet**
 
-Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
+   ```bash
+    avec la commande cd
+   ```
 
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
+3. **Démarrer les services avec Docker Compose**
 
-## License
+   ```bash
+   docker-compose up -d
+   ```
 
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
+   Cette commande va démarrer trois instances de MongoDB (un primaire et deux secondaires) et un serveur Node.js pour l'automatisation des opérations CRUD.
 
+4. **Installer les dépendances du projet Node.js**
+
+   ```bash
+    npm install
+    ```
+
+## Utilisation
+
+### Démarrer le réplica set MongoDB avec Docker 
+L'initialisation du Replica Set MongoDB se fait automatiquement lors du 
+démarrage des services avec Docker Compose.
+
+### Générer et insérer des données dans la base de données 
+Exécutez le script generateData.js pour générer et insérer des données aléatoires 
+dans la base de données :
+    
+    ```bash
+    node generateData.js
+    ```
+### Commandes CLI pour les opérations CRUD 
+- Insertion 
+    
+        ```bash
+        node createData.js
+        ```
+
+- Lecture
+
+        ```bash
+        node readData.js
+        ```
+- Mise à jour
+
+        ```bash
+        node updateData.js 
+        ```
+- Suppression
+
+        `` bash
+        node deleteData.js
+        ```
+## Auteur
+Enzo Chamanier
+
+    

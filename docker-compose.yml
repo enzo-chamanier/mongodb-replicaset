@@ -1,17 +1,43 @@
 version: '3.8'
 services:
-  mongo:
+  mongo1:
     image: mongo:4.4
-    command: mongod --replSet rs0 --bind_ip localhost,mongo
+    hostname: mongo1
     ports:
       - "27017:27017"
+    command: mongod --replSet rs0 --bind_ip_all
+    volumes:
+      - mongo1data:/data/db
+    networks:
+      - mongo_network
+
   mongo2:
     image: mongo:4.4
-    command: mongod --replSet rs0 --bind_ip localhost,mongo2
+    hostname: mongo2
     ports:
       - "27018:27017"
+    command: mongod --replSet rs0 --bind_ip_all
+    volumes:
+      - mongo2data:/data/db
+    networks:
+      - mongo_network
+
   mongo3:
     image: mongo:4.4
-    command: mongod --replSet rs0 --bind_ip localhost,mongo3
+    hostname: mongo3
     ports:
       - "27019:27017"
+    command: mongod --replSet rs0 --bind_ip_all
+    volumes:
+      - mongo3data:/data/db
+    networks:
+      - mongo_network
+
+volumes:
+  mongo1data:
+  mongo2data:
+  mongo3data:
+
+networks:
+  mongo_network:
+    driver: bridge
